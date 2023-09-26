@@ -5,6 +5,40 @@
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+FAIL src/nested.test.ts
+  ● Testing the Question[] functions › Testing the editOption function
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 3
+    + Received  + 1
+
+    @@ -2,13 +2,11 @@
+        Object {
+          "body": "",
+          "expected": "",
+          "id": 1,
+          "name": "Question 1",
+    -     "options": Array [
+    -       "NEW OPTION",
+    -     ],
+    +     "options": Array [],
+          "points": 1,
+          "published": false,
+          "type": "multiple_choice_question",
+        },
+        Object {
+
+      895 |
+      896 |     test("Testing the editOption function", () => {
+    > 897 |         expect(editOption(BLANK_QUESTIONS, 1, -1, "NEW OPTION")).toEqual([
+          |                                                                  ^
+      898 |             {
+      899 |                 id: 1,
+      900 |                 name: "Question 1",
+
+      at Object.<anonymous> (src/nested.test.ts:897:66)
+
 PASS src/arrays.test.ts
 PASS src/objects.test.ts
 PASS src/HtmlCss.test.tsx
@@ -14,18 +48,20 @@ PASS src/App.test.tsx
 ----------------|---------|----------|---------|---------|-------------------
 File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------|---------|----------|---------|---------|-------------------
-All files       |   99.07 |      100 |     100 |   99.04 |                   
- src            |   99.07 |      100 |     100 |   99.04 |                   
+All files       |   98.41 |    96.05 |    98.8 |   98.36 |                   
+ src            |   98.41 |    96.05 |    98.8 |   98.36 |                   
   App.tsx       |     100 |      100 |     100 |     100 |                   
   arrays.ts     |    98.3 |      100 |     100 |   98.21 | 168               
   functions.ts  |     100 |      100 |     100 |     100 |                   
+  nested.ts     |   97.53 |    86.95 |   97.61 |   97.46 | 302-303           
   objects.ts    |     100 |      100 |     100 |     100 |                   
  src/interfaces |       0 |        0 |       0 |       0 |                   
+  answer.ts     |       0 |        0 |       0 |       0 |                   
   question.ts   |       0 |        0 |       0 |       0 |                   
 ----------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 6 passed, 6 total
-Tests:       33 passed, 33 total
+Test Suites: 1 failed, 6 passed, 7 total
+Tests:       1 failed, 48 passed, 49 total
 Snapshots:   0 total
-Time:        5.183 s
+Time:        4.84 s
 Ran all test suites.
