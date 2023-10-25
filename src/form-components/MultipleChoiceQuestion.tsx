@@ -3,6 +3,12 @@ import { Form } from "react-bootstrap";
 
 export function MultipleChoiceQuestion({
     options,
+    expectedAnswer,
+    title
+}: {
+    options: string[];
+    expectedAnswer: string;
+    title: string;
     expectedAnswer
 }: {
     options: string[];
@@ -18,6 +24,7 @@ export function MultipleChoiceQuestion({
     return (
         <div>
             <Form.Group>
+                <Form.Label>{title}</Form.Label>
                 <Form.Label>Answer:</Form.Label>
                 <Form.Select
                     style={{ textAlign: "center" }}
